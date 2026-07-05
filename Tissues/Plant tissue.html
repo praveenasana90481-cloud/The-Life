@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Tissues</title>
+
+    <style>
+        :root {
+            --dark-green: #1b5e20;
+            --main-green: #2ecc71;
+            --soft-green: #e8f5e9;
+            --light-green: #f1fbf4;
+            --xylem: #2980b9;
+            --phloem: #e67e22;
+            --yellow: #f1c40f;
+            --text: #243342;
+            --muted: #5d6d7e;
+            --white: #ffffff;
+            --shadow: rgba(0,0,0,0.09);
+            --border: #dfeee2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f7f6, #eefaf1);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header {
+            background:
+                linear-gradient(rgba(27, 94, 32, 0.92), rgba(27, 94, 32, 0.92)),
+                radial-gradient(circle at top left, #7bed9f, transparent 35%);
+            color: white;
+            padding: 56px 18px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 7vw, 3.4rem);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            max-width: 900px;
+            margin: 16px auto 0;
+            font-size: clamp(0.98rem, 2.5vw, 1.18rem);
+            opacity: 0.96;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 28px auto;
+            padding: 0 16px;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: clamp(18px, 3vw, 30px);
+            margin-bottom: 28px;
+            box-shadow: 0 5px 18px var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.11);
+        }
+
+        h2 {
+            color: var(--dark-green);
+            border-bottom: 3px solid var(--soft-green);
+            padding-bottom: 10px;
+            margin: 0 0 18px;
+            font-size: clamp(1.35rem, 4vw, 2rem);
+        }
+
+        h3 {
+            color: var(--dark-green);
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-size: clamp(1.08rem, 3vw, 1.35rem);
+        }
+
+        p, li, td, th {
+            font-size: clamp(0.94rem, 2.2vw, 1.02rem);
+        }
+
+        .intro-highlight {
+            background: #f0fff4;
+            border-left: 6px solid var(--main-green);
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 18px;
+        }
+
+        .quick-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 0 28px;
+            padding: 12px;
+            background: rgba(244, 247, 246, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .quick-nav a {
+            color: var(--dark-green);
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: 0.2s ease;
+        }
+
+        .quick-nav a:hover {
+            background: var(--dark-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .card {
+            background: var(--light-green);
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 3px 10px var(--shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.025);
+        }
+
+        .card b {
+            display: block;
+            color: var(--dark-green);
+            margin-bottom: 8px;
+            font-size: 1.08rem;
+        }
+
+        .card p {
+            margin: 0;
+        }
+
+        .feature-list {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+        }
+
+        .char-box {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 22px;
+            border-radius: 14px;
+            margin-top: 12px;
+        }
+
+        .char-box ul {
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        .char-box li {
+            margin-bottom: 9px;
+        }
+
+        .classification-flow {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .flow-main {
+            background: #dff5e6;
+            border: 2px solid #a9dfbf;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
+
+        .flow-branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .flow-box {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 2px 9px var(--shadow);
+        }
+
+        .flow-box b {
+            color: var(--dark-green);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .complex-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .xylem-box,
+        .phloem-box {
+            padding: 22px;
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 3px 12px var(--shadow);
+        }
+
+        .xylem-box {
+            border: 2px solid var(--xylem);
+        }
+
+        .phloem-box {
+            border: 2px solid var(--phloem);
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f2f4f4;
+            padding: 6px 9px;
+            margin: 5px 4px 0 0;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 18px;
+            border-radius: 12px;
+            border: 1px solid #e1e8e3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 720px;
+            background: white;
+        }
+
+        th, td {
+            padding: 13px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #eaf7ed;
+            color: var(--dark-green);
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #fbfbfb;
+        }
+
+        tbody tr:hover {
+            background-color: #f2fff5;
+        }
+
+        .memory-box {
+            background: #fff8df;
+            border-left: 6px solid var(--yellow);
+            padding: 20px;
+            border-radius: 14px;
+        }
+
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .diagram-card {
+            background: #ffffff;
+            border: 1px solid #e3eadf;
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 3px 10px var(--shadow);
+            text-align: center;
+        }
+
+        .diagram-card img {
+            margin: 0 auto;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .diagram-card p {
+            margin: 10px 0 0;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
+
+        .button-area {
+            text-align: center;
+            margin: 35px 0 16px;
+        }
+
+        .main-button {
+            display: inline-block;
+            border-radius: 35px;
+            font-size: clamp(1rem, 4vw, 1.65rem);
+            padding: 17px 32px;
+            background-color: var(--yellow);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+            transition: 0.3s ease;
+        }
+
+        .main-button:hover {
+            transform: scale(1.04);
+            background-color: #d4ac0d;
+        }
+
+        .top-link {
+            display: inline-block;
+            margin-top: 14px;
+            color: var(--dark-green);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 42px 14px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 12px;
+            }
+
+            .section {
+                margin-bottom: 22px;
+            }
+
+            .quick-nav {
+                top: 0;
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding: 10px;
+                border-radius: 0 0 14px 14px;
+            }
+
+            .quick-nav a {
+                white-space: nowrap;
+            }
+
+            table {
+                min-width: 680px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 34px 12px;
+            }
+
+            .main-button {
+                width: 100%;
+                padding: 15px 18px;
+            }
+
+            .diagram-grid {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                min-width: 640px;
+            }
+        }
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="top">
+    <h1>Plant Tissues</h1>
+    <p>
+        Plant tissues are groups of similar or specialized cells that work together to perform important functions such as growth, protection, support, storage, photosynthesis, and transport of water, minerals, and food.
+    </p>
+</header>
+
+<div class="container">
+
+    
+
+    <section class="section" id="introduction">
+        <h2>Introduction</h2>
+        <p>
+            Plants are multicellular organisms. Their body is made up of many cells, but all cells do not perform the same function. Some cells help in growth, some store food, some give mechanical strength, and some transport water and food. A group of cells that performs a specific function is called a tissue.
+        </p>
+
+        <div class="intro-highlight">
+            <strong>Simple Definition:</strong>
+            Plant tissue is a group of plant cells having a common origin and working together to perform a particular function.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Why Are Plant Tissues Important?</h2>
+        <ul class="feature-list">
+            <li>They help the plant grow in length and thickness.</li>
+            <li>They provide strength and support to roots, stems, leaves, flowers, and fruits.</li>
+            <li>They transport water and minerals from roots to leaves.</li>
+            <li>They transport prepared food from leaves to all parts of the plant.</li>
+            <li>They help in storage of food, water, and nutrients.</li>
+            <li>They protect the plant from injury, water loss, and infection.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>General Characteristics of Plant Tissues</h2>
+        <div class="char-box">
+            <ul>
+                <li>Plant tissues provide structural strength because plants are stationary.</li>
+                <li>Growth is restricted to specific regions called meristems.</li>
+                <li>Some plant tissues are made of dead cells to provide mechanical support.</li>
+                <li>Plant tissues are comparatively simple and repetitive in arrangement.</li>
+                <li>They are specialized for growth, support, storage, protection, and transport.</li>
+                <li>Plant tissues are influenced by light, water, minerals, hormones, and environmental conditions.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" id="classification">
+        <h2>Classification of Plant Tissues</h2>
+        <p>
+            Plant tissues are broadly divided into two main types: meristematic tissues and permanent tissues. Permanent tissues are further divided into simple permanent, complex permanent, and protective tissues.
+        </p>
+
+        <div class="classification-flow">
+            <div class="flow-main">Plant Tissues</div>
+
+            <div class="flow-branches">
+                <div class="flow-box">
+                    <b>1. Meristematic Tissue</b>
+                    Actively dividing tissue responsible for plant growth.
+                </div>
+
+                <div class="flow-box">
+                    <b>2. Permanent Tissue</b>
+                    Mature tissue that performs fixed functions like support, storage, and transport.
+                </div>
+            </div>
+
+            <div class="flow-branches">
+                <div class="flow-box">
+                    <b>Simple Permanent Tissue</b>
+                    Parenchyma, Collenchyma, Sclerenchyma
+                </div>
+
+                <div class="flow-box">
+                    <b>Complex Permanent Tissue</b>
+                    Xylem and Phloem
+                </div>
+
+                <div class="flow-box">
+                    <b>Protective Tissue</b>
+                    Epidermis and Cork
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="meristematic">
+        <h2>Meristematic Tissue</h2>
+        <p>
+            Meristematic tissues are made up of young, actively dividing cells. These tissues are responsible for continuous growth in plants. The cells are small, thin-walled, have dense cytoplasm, a prominent nucleus, and usually lack vacuoles.
+        </p>
+
+        <div class="grid">
+            <div class="card">
+                <b>Apical Meristem</b>
+                <p>Located at the tips of roots and shoots. It helps in increasing the length of the plant. This is called primary growth.</p>
+            </div>
+
+            <div class="card">
+                <b>Lateral Meristem</b>
+                <p>Located on the sides of stems and roots. It helps in increasing the thickness or girth of the plant. This is called secondary growth.</p>
+            </div>
+
+            <div class="card">
+                <b>Intercalary Meristem</b>
+                <p>Found at the base of leaves or internodes, especially in grasses. It helps in regrowth and elongation after cutting or grazing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="permanent">
+        <h2>Permanent Tissue</h2>
+        <p>
+            Permanent tissues are formed from meristematic tissues. Their cells lose the ability to divide and become specialized to perform specific functions. This process is called differentiation.
+        </p>
+
+        <h3>Simple Permanent Tissue</h3>
+        <div class="grid">
+            <div class="card">
+                <b>Parenchyma</b>
+                <p>Living cells with thin cell walls. They store food and water. In leaves, chlorenchyma helps in photosynthesis. In aquatic plants, aerenchyma helps in floating.</p>
+            </div>
+
+            <div class="card">
+                <b>Collenchyma</b>
+                <p>Living cells with thickened corners. They provide flexibility and mechanical support to young stems, leaf stalks, and growing parts.</p>
+            </div>
+
+            <div class="card">
+                <b>Sclerenchyma</b>
+                <p>Dead cells with very thick lignified walls. They provide hardness, rigidity, and strength to plant parts such as coconut husk and seed coats.</p>
+            </div>
+        </div>
+
+        <h3>Protective Tissue</h3>
+        <div class="grid">
+            <div class="card">
+                <b>Epidermis</b>
+                <p>The outermost protective layer of the plant. It reduces water loss, protects against injury, and contains stomata for gaseous exchange.</p>
+            </div>
+
+            <div class="card">
+                <b>Cork</b>
+                <p>A dead protective tissue found in older stems and roots. It prevents water loss and protects the plant from mechanical injury and pathogens.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="complex">
+        <h2>Complex Permanent Tissue</h2>
+        <p>
+            Complex permanent tissues are made up of more than one type of cell. These cells work together as a unit to perform transport functions in plants.
+        </p>
+
+        <div class="complex-container">
+            <div class="xylem-box">
+                <h3 style="color:var(--xylem)">Xylem</h3>
+                <p>
+                    Xylem transports water and minerals from roots to stems and leaves. The movement is mostly upward. It also gives mechanical support to the plant.
+                </p>
+                <span class="tag">Tracheids</span>
+                <span class="tag">Vessels</span>
+                <span class="tag">Xylem Parenchyma</span>
+                <span class="tag">Xylem Fibres</span>
+            </div>
+
+            <div class="phloem-box">
+                <h3 style="color:var(--phloem)">Phloem</h3>
+                <p>
+                    Phloem transports food prepared in leaves to all parts of the plant. This movement can occur both upward and downward.
+                </p>
+                <span class="tag">Sieve Tubes</span>
+                <span class="tag">Companion Cells</span>
+                <span class="tag">Phloem Parenchyma</span>
+                <span class="tag">Phloem Fibres</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="differences">
+        <h2>Differences Between Meristematic and Permanent Tissue</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Meristematic Tissue</th>
+                        <th>Permanent Tissue</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><b>Cell Division</b></td>
+                        <td>Cells divide continuously.</td>
+                        <td>Cells usually lose the ability to divide.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Main Function</b></td>
+                        <td>Responsible for growth of the plant.</td>
+                        <td>Responsible for support, storage, protection, and transport.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Cell Size</b></td>
+                        <td>Cells are small and immature.</td>
+                        <td>Cells are larger and mature.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Cytoplasm</b></td>
+                        <td>Dense cytoplasm is present.</td>
+                        <td>Cytoplasm is less dense or thin.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Vacuoles</b></td>
+                        <td>Usually absent or very small.</td>
+                        <td>Large vacuoles are usually present.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Cell Wall</b></td>
+                        <td>Thin primary cell wall.</td>
+                        <td>May be thin or thick depending on function.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Nucleus</b></td>
+                        <td>Prominent nucleus is present.</td>
+                        <td>Nucleus may be less prominent or absent in dead cells.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Location</b></td>
+                        <td>Found in growing regions like root tips and shoot tips.</td>
+                        <td>Found in mature plant parts like stems, leaves, roots, and fruits.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Differences Between Xylem and Phloem</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Xylem</th>
+                        <th>Phloem</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><b>Material Transported</b></td>
+                        <td>Water and minerals.</td>
+                        <td>Food prepared by leaves.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Direction</b></td>
+                        <td>Mainly upward, from roots to leaves.</td>
+                        <td>Both upward and downward, from leaves to other parts.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Cell Nature</b></td>
+                        <td>Mostly dead cells, except xylem parenchyma.</td>
+                        <td>Mostly living cells, except phloem fibres.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Additional Role</b></td>
+                        <td>Provides mechanical support.</td>
+                        <td>Distributes nutrients for growth and storage.</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Examples of Elements</b></td>
+                        <td>Tracheids, vessels, xylem parenchyma, xylem fibres.</td>
+                        <td>Sieve tubes, companion cells, phloem parenchyma, phloem fibres.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Examples from Daily Life</h2>
+        <ul class="feature-list">
+            <li><b>Potato:</b> Parenchyma stores food in the form of starch.</li>
+            <li><b>Coconut husk:</b> Sclerenchyma fibres provide hardness and strength.</li>
+            <li><b>Mint stem:</b> Collenchyma gives flexibility to young parts.</li>
+            <li><b>Tree trunk:</b> Xylem provides transport and mechanical support.</li>
+            <li><b>Leaves:</b> Phloem carries prepared food from leaves to other parts of the plant.</li>
+            <li><b>Grass after cutting:</b> Intercalary meristem helps it grow again.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Quick Memory Points</h2>
+        <div class="memory-box">
+            <ul class="feature-list">
+                <li><b>Meristematic tissue:</b> Dividing tissue responsible for growth.</li>
+                <li><b>Permanent tissue:</b> Mature tissue with fixed functions.</li>
+                <li><b>Parenchyma:</b> Storage and photosynthesis.</li>
+                <li><b>Collenchyma:</b> Flexible support.</li>
+                <li><b>Sclerenchyma:</b> Hard and rigid support.</li>
+                <li><b>Xylem:</b> Carries water and minerals upward.</li>
+                <li><b>Phloem:</b> Carries food in both directions.</li>
+                <li><b>Epidermis and cork:</b> Protection.</li>
+            </ul>
+        </div>
+    </section>
+
+    
+
+
+<section class="section">
+    <h2>Functional Understanding of Plant Tissues</h2>
+    <p>
+        Plant tissues are closely related to the lifestyle of plants. Since plants are fixed in one place,
+        they need strong supporting tissues, efficient transport tissues, and growing tissues at specific
+        regions. Meristematic tissues help the plant grow, while permanent tissues take up specialized
+        roles such as storage, flexibility, hardness, protection, and conduction.
+    </p>
+    <p>
+        Xylem and phloem are especially important because they connect roots, stems, leaves, flowers, and
+        fruits. Xylem carries water and minerals upward from the roots, while phloem distributes prepared
+        food from leaves to the rest of the plant. Together, these tissues help the plant survive, grow,
+        and adapt to different environments.
+    </p>
+</section>
+
+<section class="section">
+        <h2>Summary</h2>
+        <p>
+            Plant tissues form the structural and functional framework of plants. Meristematic tissues help in continuous growth, while permanent tissues perform specialized functions such as storage, support, protection, and transport. Simple permanent tissues include parenchyma, collenchyma, and sclerenchyma. Complex permanent tissues include xylem and phloem, which help in conduction. Protective tissues like epidermis and cork protect the plant body. Together, these tissues help plants grow, survive, and adapt to their environment.
+        </p>
+    </section>
+
+    <section class="section" id="diagrams">
+        <h2>Diagrams</h2>
+        <p>
+            Use these diagrams to understand the classification and structure of plant tissues more clearly.
+        </p>
+
+        <div class="diagram-grid">
+            <div class="diagram-card">
+                <img src="Meristematic.png" alt="Meristematic tissue diagram" loading="lazy">
+                <p>Meristematic Tissue</p>
+            </div>
+
+            <div class="diagram-card">
+                <img src="Simple.png" alt="Simple permanent tissue diagram" loading="lazy">
+                <p>Simple Permanent Tissue</p>
+            </div>
+
+            <div class="diagram-card">
+                <img src="Complex.png" alt="Complex permanent tissue diagram" loading="lazy">
+                <p>Complex Permanent Tissue</p>
+            </div>
+
+            <div class="diagram-card">
+                <img src="Classification%20of%20plant%20tissue.png" alt="Classification of plant tissue diagram" loading="lazy">
+                <p>Classification of Plant Tissue</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="button-area">
+        <a href="Animal%20Tissue.html" class="main-button">
+            Click to know about Animal Tissue
+        </a>
+        <br>
+        
+    </div>
+
+</div>
+
+</body>
+</html>

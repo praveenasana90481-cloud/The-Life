@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    #content {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: aqua;
+      background: #f9f9f9;
+      white-space: pre-line;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+  
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+<body>
+  <h1 id="title"></h1>
+  
+  <button onclick="readAloud()">🔊 Read Aloud</button>
+  <button onclick="stopReading()">⏹ Stop</button>
+  
+  <button id="back" onclick="stopReading()"><a href="cell.html">⬅ Back to Home</a></button>
+
+  <script>
+    const data = {
+      "Nucleus": `The nucleus is the control center of a cell, responsible for storing genetic material and regulating cellular activities. It is surrounded by a double membrane called the nuclear envelope, which protects its contents while allowing communication with the rest of the cell. Inside the nucleus, DNA is organized into chromosomes, which carry instructions for growth, reproduction, and function. The nucleolus, a dense region within the nucleus, is involved in the production of ribosomes, essential for protein synthesis. The nucleus plays a critical role in maintaining cell integrity and ensuring genetic information is accurately passed on during cell division. Its functions are vital for the life and health of an organism.`,
+
+      "Ribosomes": `The Ribosomes are small, non-membrane-bound organelles that carry out protein synthesis by translating messenger RNA (mRNA). They are found free-floating in the cytoplasm or attached to the rough endoplasmic reticulum (ER). Free ribosomes produce proteins used within the cell, while bound ribosomes synthesize proteins for export or insertion into membranes. Ribosomes consist of ribosomal RNA (rRNA) and protein. They play a crucial role in cell function and survival by creating enzymes and structural proteins essential for various cellular processes.`,
+
+      "Cell membrane": `The cell membrane, also known as the plasma membrane, is a flexible, protective barrier that surrounds the cell. It is made of a phospholipid bilayer with embedded proteins. The membrane controls what enters and exits the cell, maintaining a stable internal environment. It allows nutrients and oxygen in, and lets waste and carbon dioxide out. Membrane proteins help with transport, communication, and recognition of other cells. The membrane also helps the cell sense changes in its environment. Its selective permeability is vital for cell survival and function.`,
+
+      "Cytoplasm": `Cytoplasm is the jelly-like substance found inside cells, surrounding the nucleus and other organelles. It is primarily composed of water, proteins, salts, and other molecules, providing a medium for cellular processes. Cytoplasm plays a crucial role in maintaining cell shape, enabling movement, and facilitating biochemical reactions. It houses the cytoskeleton, which supports the cell, and the organelles responsible for energy production, protein synthesis, and waste management. Additionally, cytoplasm aids in intracellular transport, ensuring essential substances reach their destinations efficiently. Its dynamic nature makes it vital for cell function and survival.`,
+
+      "Rough Endoplasmic Reticulum": `The Rough Endoplasmic Reticulum is a network of flattened, membrane-bound sacs covered in ribosomes, giving it a rough appearance. These ribosomes are responsible for synthesizing proteins. As proteins are made, they enter the RER, where they undergo modifications such as folding and adding sugar molecules (glycosylation). The RER plays a crucial role in transporting newly synthesized proteins to the Golgi apparatus for further processing and distribution. It is especially abundant in cells involved in high protein production, such as pancreas and liver cells.`,
+
+      "Smooth Endoplasmic Reticulum": `The smooth endoplasmic reticulum lacks ribosomes, making its surface smooth. It specializes in lipid synthesis, including cholesterol and phospholipids necessary for building cell membranes. Additionally, it plays an important role in detoxifying harmful substances, breaking down drugs and toxins in liver cells. The SER is also involved in storing and regulating calcium ions, crucial for muscle contractions. Unlike the RER, which focuses on protein synthesis, the SER primarily contributes to lipid metabolism and detoxification, supporting various cellular processes.`,
+
+      "Golgi apparatus": `The Golgi apparatus consists of stacks of membrane-bound sacs that process, package, and distribute proteins and lipids. It modifies molecules received from the ER by adding sugars (glycosylation) or lipids, converting them into functional forms. These molecules are then sorted and sent to their destinations inside or outside the cell. The Golgi apparatus also plays a role in producing lysosomes and transporting cellular waste, acting as the cell's distribution and shipping center.`,
+
+      "Mitochondria": `Mitochondria are known as the “powerhouses” of the cell because they produce energy in the form of ATP (adenosine triphosphate). They carry out cellular respiration, using oxygen and nutrients like glucose to generate energy. Each mitochondrion has two membranes: an outer membrane and a highly folded inner membrane, which increases surface area for energy-producing reactions. Mitochondria also have their own DNA and can reproduce independently. They play a role in metabolism, calcium storage, and cell death. Their efficiency and number often reflect the energy needs of the cell they belong to.`,
+
+      "Lysosomes": `The Lysosomes are membrane-bound organelles containing hydrolytic enzymes responsible for breaking down cellular waste, debris, and foreign materials. They are most prominent in animal cells. These enzymes digest macromolecules, damaged organelles, and pathogens. Lysosomes also assist in apoptosis (programmed cell death) by releasing their contents into the cytoplasm. They recycle the broken-down components, ensuring the cell remains clean and functional. Known as the cell's recycling center, lysosomes maintain cellular health and stability.`,
+
+      "Peroxisomes": `The Peroxisomes are small, membrane-enclosed organelles that detoxify harmful substances and play roles in lipid metabolism. They contain enzymes that break down hydrogen peroxide, a toxic byproduct of cellular reactions, into water and oxygen. Peroxisomes are vital for metabolizing fatty acids and amino acids, generating energy and building cell membranes. In plant cells, they assist in photorespiration. Their detoxification and metabolic functions are crucial for maintaining cellular balance.`,
+
+      "Chloroplasts": `The Chloroplasts, exclusive to plant cells, are double-membraned organelles responsible for photosynthesis. They contain chlorophyll, a green pigment that captures sunlight. Inside, thylakoids (stacked into grana) house the photosynthetic machinery. Chloroplasts convert sunlight, carbon dioxide, and water into glucose and oxygen, providing energy for the plant. Additionally, they store starch and play roles in amino acid and lipid synthesis. Chloroplasts have their DNA, enabling them to replicate independently.`,
+
+      "Vacuole": `The Vacuole, particularly prominent in plant cells, is a large, membrane-bound sac responsible for storage and maintaining turgor pressure. It stores water, nutrients, waste products, and pigments. By filling with water, the vacuole exerts pressure on the cell wall, helping maintain the plant's structure and rigidity. In animal cells, smaller vacuoles serve storage functions as well. The vacuole's ability to store harmful substances also contributes to cellular detoxification and protection.`,
+
+      "Cytoskeleton": `The Cytoskeleton is a dynamic network of microfilaments, intermediate filaments, and microtubules providing structural support to the cell. It helps maintain cell shape, anchors organelles, and facilitates intracellular transport. The cytoskeleton is involved in cellular movement, such as the contraction of muscle cells or the movement of cilia and flagella. It also plays a crucial role in cell division by forming the mitotic spindle, ensuring equal chromosome distribution.`,
+
+      "Flagella & Cilia": `The flagella and cilia are hair-like structures that aid in cell movement and substance transport. Flagella, like those found in sperm cells, are longer and fewer in number, propelling cells through liquids. Cilia are shorter and more numerous, moving substances like mucus across cell surfaces. Both are composed of microtubules in a 9+2 arrangement. They play critical roles in motility and environmental sensing.`,
+
+      "Cell Wall": `The cell wall is a tough, protective layer surrounding plant cells, giving them shape and rigidity. Made primarily of cellulose, it prevents the cell from bursting during water intake. It also contains hemicellulose, pectin, and lignin. The cell wall serves as a barrier against pathogens and environmental stress. It also plays a role in cell communication and transport via plasmodesmata.`,
+
+      "Plastids": `Plastids are specialized organelles crucial for various plant cell functions. There are three main types: chloroplasts for photosynthesis, chromoplasts for pigments, and leucoplasts for storing starch, proteins, and oils. Plastids have their own DNA and can divide independently. They help plants capture sunlight, store energy, and produce essential molecules.`,
+
+      "Plasmodesmata": `Plasmodesmata are microscopic channels connecting plant cells, allowing direct transport of water, nutrients, and signalling molecules. These bridges enable communication, ensuring coordinated growth and responses to environmental stimuli. They regulate molecular flow by controlling their openings. Without plasmodesmata, plant cells would be isolated.`,
+
+      "Centrioles": `Centrioles are cylindrical organelles found in animal cells, composed of microtubules arranged in a 9+0 pattern. They help in cell division by organizing the mitotic spindle, ensuring equal chromosome separation. Located in the centrosome, they also help form cilia and flagella.`,
+      
+      "Chromoplasts":`Chromoplasts are plastids found in plant cells that synthesize and store pigments, primarily carotenoids. These pigments give flowers, fruits, and aging leaves their vibrant red, yellow, and orange hues. Unlike chloroplasts, which perform photosynthesis, chromoplasts enhance pollination and seed dispersal by attracting animals. For example, the bright colors of a ripe mango or a marigold flower are due to chromoplasts converting chloroplasts as the plant matures.`,
+      
+      "Leucoplasts":`Leucoplasts are colorless plastids found in non-photosynthetic tissues like roots and seeds. They specialize in the synthesis and storage of starch (amyloplasts), oils (elaioplasts), and proteins (proteinoplasts). These organelles play a vital role in storing energy-rich compounds, especially in tubers like potatoes. In robotics inspired by plant storage systems, leucoplast behavior might inform bio-mimetic energy reservoirs.`,
+      
+      "Vesicle":`Vesicles are tiny, membrane-bound sacs inside cells that function as transport and storage units. Their structure—a lipid bilayer—enables them to safely carry substances like proteins, enzymes, or waste between organelles or to the cell membrane. Vesicles are central to processes like endocytosis, where they help internalize external materials, and exocytosis, which allows cells to expel substances. Different types include transport vesicles that shuttle molecules, secretory vesicles that release compounds like neurotransmitters, and lysosomes, which digest cellular debris using enzymes. Their controlled movement and fusion with membranes ensure efficient cellular communication, metabolism, and defense, making vesicles indispensable for maintaining cell structure and function.`
+};
+    
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const topic = urlParams.get("name");
+
+  document.getElementById("title").textContent = topic;
+  document.getElementById("content").innerHTML = data[topic] || "No data available.";
+
+const imgBox = document.getElementById("image");
+
+const imageMap = {
+  "Nucleus": "Nucleus.png",
+  "Ribosomes": "Ribosome.png",
+  "Cell membrane": "Cell Membrane.png",
+  "Cytoplasm": "Cytoskeleton.png",
+  "Rough Endoplasmic Reticulum": "Rough Endoplasmic Reticulum.png",
+  "Smooth Endoplasmic Reticulum": "Smooth Endoplasmic Reticulum.png",
+  "Golgi apparatus": "Golgi Apparatus.png",
+  "Mitochondria": "Mitochondria.png",
+  "Flagella & Cilia": "flagellacilia.png",
+  "Lysosomes": "Lysosome.png",
+  "Peroxisomes": "Peroxisome.png",
+  "Chloroplasts": "Chloroplast.png",
+  "Cell Wall": "cell wall.png",
+  "Vacuole": "Vacuole.png",
+  "Cytoskeleton": "Cytoskeleton.png",
+  "Centrioles": "Centriole.png",
+  "Vesicle": "vesicle.png",
+  "Chromoplasts": "Chromoplast.png",
+  "Leucoplasts": "leucoplast.png",
+  "Plastids": "Plastid.png"
+};
+
+if (topic && imageMap[topic]) {
+  imgBox.innerHTML = `
+    <div class="topic-img-box">
+      <img loading="lazy" src="${imageMap[topic]}" alt="${topic}">
+    </div>
+  `;
+}
+    function readAloud() {
+      const text = document.getElementById("content").innerText;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-GB";
+      utterance.rate = 1.1
+      speechSynthesis.speak(utterance);
+    }
+
+    function stopReading() {
+      speechSynthesis.cancel();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Human body - The Complex & Intelligent Organism</title>
+    <style>
+        header {
+            background-color: rgb(100, 100, 100);
+            color: aliceblue;
+            margin-top: 0px;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            font-size: 40px;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            padding: 40px 50px;
+            margin-top: 0px;
+            border-left: 10px solid rgb(118, 118, 255);
+            margin-bottom: 15px;
+            font-size: 25px;
+            transform: scale(0.95);
+            transition: all ease 0.5s;
+            text-align: left;
+        }
+        .card p {
+            color: crimson;
+        }
+        .card h2 {
+            color: gold;
+        }
+        .card li {
+            color: rgb(54, 54, 255);
+        }
+        .card:hover {
+            box-shadow: 10px 10px 10px #ffdb12a4;
+            transform: scale(1);
+            border-left: 10px solid rgb(255, 74, 74);
+            transition: all ease 0.5s;
+        }
+        #content {
+            background-color: rgb(213, 168, 255);
+            margin: 20px 150px;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+        table th {
+            background-color: #eee;
+        }
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+    <header>
+        <h1><b>Human Body</b></h1>
+        <p>The Complex & Intelligent Organism on the Planet Earth.</p>
+    </header>
+
+    <div id="content">
+
+        <div class="card">
+            <h2>Description:</h2>
+            <p>
+                The human body is the complete physical structure of a human being. It is composed of trillions of cells, 
+                which are the smallest units of life. These cells are specialized to perform different functions, such as 
+                carrying oxygen, transmitting signals, or contracting muscles.
+            </p>
+            <p>
+                Cells group together to form tissues, which are collections of similar cells working toward a common purpose. 
+                For example, muscle tissue enables movement, while nerve tissue transmits information throughout the body.
+            </p>
+            <p>
+                Tissues combine to create organs, each with a distinct role. The heart pumps blood, the lungs exchange gases, 
+                and the stomach digests food. Every organ is essential to maintaining balance and survival.
+            </p>
+            <p>
+                Organs are organized into systems, such as the circulatory system, digestive system, and nervous system. 
+                Each system is a network of organs working together to carry out complex processes that keep the body alive 
+                and functioning.
+            </p>
+            <p>
+                This hierarchical organization — cells → tissues → organs → systems → organism — ensures that the body 
+                operates as a unified, highly efficient structure.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Fun Facts about Human Body</h2>
+            <ol>
+                <li>Your brain generates enough electricity to power a small light bulb.</li>
+                <li>The human heart beats around 100,000 times every single day.</li>
+                <li>Babies are born with about 300 bones, but adults have 206 after many fuse together.</li>
+                <li>Nerve impulses can travel at speeds of up to 250 miles per hour.</li>
+                <li>Your eyes can distinguish about 10 million different colors.</li>
+                <li>The strongest muscle (by weight) is the masseter, which helps you chew.</li>
+                <li>Blood travels about 12,000 miles through your body daily.</li>
+                <li>The average person blinks 15–20 times per minute.</li>
+                <li>Water makes up about 60% of an adult’s body mass.</li>
+                <li>The human body contains around 37 trillion cells.</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>Summary</h2>
+            <p>
+                The human body is a complex and highly organized structure made up of trillions of cells that form tissues, 
+                organs, and organ systems, all working together to sustain life. It includes external parts such as the head, 
+                torso, and limbs, and internal systems like the circulatory, respiratory, digestive, nervous, and skeletal 
+                systems. Each system has specialized functions but remains interconnected, ensuring growth, repair, movement, 
+                communication, and survival. Altogether, the human body is a remarkable example of biological design and 
+                efficiency, capable of adapting and maintaining balance to support life.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Differences between Plants and Humans</h2>
+            <div class="table-wrapper">
+<table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Plants</th>
+                        <th>Humans</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nutrition</td>
+                        <td>Autotrophic (make their own food via photosynthesis)</td>
+                        <td>Heterotrophic (depend on other organisms for food)</td>
+                    </tr>
+                    <tr>
+                        <td>Movement</td>
+                        <td>Generally fixed in one place</td>
+                        <td>Capable of active movement</td>
+                    </tr>
+                    <tr>
+                        <td>Growth</td>
+                        <td>Continuous growth throughout life</td>
+                        <td>Growth stops after maturity</td>
+                    </tr>
+                    <tr>
+                        <td>Respiration</td>
+                        <td>Take in carbon dioxide and release oxygen</td>
+                        <td>Take in oxygen and release carbon dioxide</td>
+                    </tr>
+                    <tr>
+                        <td>Sensitivity</td>
+                        <td>Respond slowly to stimuli (e.g., light, touch)</td>
+                        <td>Respond quickly to stimuli via nervous system</td>
+                    </tr>
+                    <tr>
+                        <td>Reproduction</td>
+                        <td>Mostly asexual (seeds, spores, vegetative methods)</td>
+                        <td>sexual reproduction</td>
+                    </tr>
+                </tbody>
+            </table>
+</div>
+        </div>
+        <center><a href="../Future of Evolution/Future Evolution Of Humans.html"><button style="font-size:22px; padding:15px; background:cyan; color:purple; font-weight:bold; border:none; border-radius:10px; cursor:pointer;">Will Evolution Continue?</button></a></center>
+    
+
+</div>
+
+</body>
+</html>

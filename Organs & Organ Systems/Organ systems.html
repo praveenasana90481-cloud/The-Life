@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Systems</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(to right, #f0f4f8, #ffffff);
+            color: #2c3e50;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        h1 {
+            text-align: center;
+            color: #0d47a1;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p.intro {
+            text-align: center;
+            font-style: italic;
+            color: #37474f;
+            margin-bottom: 30px;
+        }
+section {
+    background: #ffffff;
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 0 12px 12px 0; 
+    max-width: 900px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 1rem solid #bdc3c7; 
+}
+        section:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: #1565c0;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 8px;
+        }
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+section:nth-of-type(1) { border-left-color: #e74c3c; }
+section:nth-of-type(2) { border-left-color: #3498db; }
+section:nth-of-type(3) { border-left-color: #9b59b6; }
+section:nth-of-type(4) { border-left-color: #f1c40f; }
+section:nth-of-type(5) { border-left-color: #27ae60; }
+section:nth-of-type(6) { border-left-color: #e67e22; }
+section:nth-of-type(7) { border-left-color: #1abc9c; } 
+section:nth-of-type(8) { border-left-color: #c0392b; } 
+section:nth-of-type(9) { border-left-color: #95a5a6; }
+section:nth-of-type(10) { border-left-color: #ff9ff3; } 
+section:nth-of-type(11) { border-left-color: #f39c12; } 
+section:nth-of-type(12) { border-left-color: #2ecc71; } 
+section:nth-of-type(13) { border-left-color: #34495e; } 
+section:last-of-type { border-left: none; border-radius: 12px; }
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<h1>Organ Systems</h1>
+<p class="intro">
+    Organ systems are groups of organs working together to perform vital functions and maintain homeostasis in the body.
+</p>
+
+<section>
+    <h2>Circulatory System</h2>
+    <p>
+        Transports blood, nutrients, gases, and wastes throughout the body. 
+        Ensures every cell receives oxygen and nutrients while removing carbon dioxide and other waste products.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Heart, blood vessels, blood.</li>
+        <li><b>Function:</b> Circulation of oxygen, nutrients, hormones, and waste removal.</li>
+    </ul>
+    <img loading="lazy" src="circulatory.png">
+</section>
+
+<section>
+    <h2>Respiratory System</h2>
+    <p>
+        Responsible for gas exchange. Brings oxygen into the body and expels carbon dioxide, supporting cellular respiration and energy production.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Lungs, trachea, diaphragm.</li>
+        <li><b>Function:</b> Exchange of oxygen and carbon dioxide.</li>
+    </ul>
+    <img loading="lazy" src="respiratory.png">
+</section>
+
+<section>
+    <h2>Nervous System</h2>
+    <p>
+        Controls and coordinates body activities. Processes information from the environment and directs responses through electrical signals.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Brain, spinal cord, nerves.</li>
+        <li><b>Function:</b> Control of actions, thoughts, memory, and reflexes.</li>
+    </ul>
+    <img loading="lazy" src="nervous.png"
+</section>
+
+<section>
+    <h2>Digestive System</h2>
+    <p>
+        Breaks down food into nutrients that the body can absorb and use for energy, growth, and repair. Eliminates undigested waste.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Mouth, stomach, intestines, liver, pancreas.</li>
+        <li><b>Function:</b> Digestion and absorption of nutrients.</li>
+    </ul>
+    <img loading="lazy" src="digestive.png">
+</section>
+
+<section>
+    <h2>Excretory System</h2>
+    <p>
+        Removes waste products from the body and maintains water and electrolyte balance. Plays a key role in detoxification and homeostasis.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Kidneys, bladder, ureters.</li>
+        <li><b>Function:</b> Filtration of blood, removal of waste, regulation of fluids.</li>
+    </ul>
+    <img loading="lazy" src="excretory.jpg">
+</section>
+
+<section>
+    <h2>Integumentary System</h2>
+    <p>
+        Protects the body from external harm. Regulates temperature, prevents dehydration, and allows sensation of touch, pressure, and pain.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Skin, hair, nails.</li>
+        <li><b>Function:</b> Protection, temperature regulation, sensory reception.</li>
+    </ul>
+    <img loading="lazy" src="integumentary.png">
+</section>
+
+<section>
+    <h2>Sensory System</h2>
+    <p>
+        Allows perception of the environment. Includes organs that detect light, sound, smell, taste, and touch, sending signals to the brain for interpretation.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Eyes, ears, nose, tongue, skin.</li>
+        <li><b>Function:</b> Detection of stimuli and sensory perception.</li>
+    </ul>
+    <img loading="lazy" src="sensory.jpg">
+</section>
+
+<section>
+    <h2>Muscular System</h2>
+    <p>
+        Provides movement, posture, and heat production. Muscles contract to move bones, pump blood, and aid digestion.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Skeletal muscles, smooth muscles, cardiac muscle.</li>
+        <li><b>Function:</b> Movement, stability, circulation, digestion.</li>
+    </ul>
+    <img loading="lazy" src="muscular.png">
+</section>
+
+<section>
+    <h2>Skeletal System</h2>
+    <p>
+        Provides structure, support, and protection for the body. Stores minerals and produces blood cells in bone marrow.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Bones, cartilage, ligaments.</li>
+        <li><b>Function:</b> Support, protection, movement, blood cell production.</li>
+    </ul>
+    <img loading="lazy" src="skeletal.png">
+</section>
+
+<section>
+    <h2>Reproductive System</h2>
+    <p>
+        Ensures survival of species by producing offspring. Includes organs that produce gametes and support fertilization and development.
+    </p>
+    <ul>
+        <li><b>Major Organs (Male):</b> Testes, penis, prostate gland.</li>
+        <li><b>Major Organs (Female):</b> Ovaries, uterus, fallopian tubes, vagina.</li>
+        <li><b>Function:</b> Production of gametes, fertilization, development of offspring.</li>
+    </ul>
+    <img loading="lazy" src="reproductive.jpg">
+</section>
+
+<section>
+    <h2>Endocrine System</h2>
+    <p>
+        The endocrine system regulates body processes through hormones. 
+        It controls growth, metabolism, reproduction, and stress responses by releasing chemical messengers into the bloodstream.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Pituitary gland, thyroid gland, adrenal glands, pancreas, ovaries, testes.</li>
+        <li><b>Function:</b> Hormone production and regulation of body functions.</li>
+    </ul>
+    <img loading="lazy" src="endocrine.png">
+</section>
+
+<section>
+    <h2>Lymphatic System</h2>
+    <p>
+        The lymphatic system defends the body against infections and maintains fluid balance. 
+        It transports lymph, removes toxins, and supports immune responses.
+    </p>
+    <ul>
+        <li><b>Major Organs:</b> Lymph nodes, lymph vessels, spleen, thymus, tonsils.</li>
+        <li><b>Function:</b> Immunity, fluid balance, removal of pathogens.</li>
+    </ul>
+    <img loading="lazy" src="lymphatic.jpg">
+</section>
+
+<section>
+    <h2>Homeostasis</h2>
+    <p>
+        Homeostasis is not a single system but the combined effort of all organ systems to maintain a stable internal environment. 
+        It ensures constant body temperature, pH, water balance, and nutrient levels despite external changes.
+    </p>
+    <ul>
+        <li><b>Major Contributors:</b> Nervous system, endocrine system, excretory system, circulatory system.</li>
+        <li><b>Function:</b> Regulation of internal conditions for survival and efficiency.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Conclusion</h2>
+    <p>
+        The human body is a remarkable network of organ systems, each with specialized roles yet deeply interconnected. 
+        From the heart driving circulation to the lungs enabling respiration, from the brain orchestrating control to the kidneys filtering waste, 
+        every system contributes to the balance of life. Together, these systems maintain <b>homeostasis</b> — the stable internal environment 
+        that allows growth, adaptation, and survival in changing conditions. Understanding organ systems not only highlights the complexity 
+        and efficiency of the human body but also reminds us of the delicate harmony required to sustain life.
+    </p>
+</section>
+
+<center><a href="../Human Body/Human Body.html"><button style="background-color: #f1c40f; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; padding: 30px 20px; border-radius: 10px; font-size: 30px;">CLick To Know What Will Happen If These Organ Systems Work Together</button></a></center>
+
+</body>
+</html>

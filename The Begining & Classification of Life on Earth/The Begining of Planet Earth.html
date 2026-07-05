@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Beginning of Planet Earth</title>
+        <meta charset="UTF-8">
+        <style>
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #a4eaf4 100%);
+    background-attachment: fixed; /* Keeps background still while scrolling */
+    margin: 0; 
+    padding: 0;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+header {
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+    color: #f1c40f; /* Golden Star Color */
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.contents {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 850px;
+    border-left: 10px solid #2980b9;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.contents:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    background-color: #ffffff;
+    border-left-color: #e67e22; 
+}
+
+h2 {
+    color: #2980b9;
+    font-size: 1.8rem;
+    margin-top: 0;
+    border-bottom: 2px solid #d5dbdb;
+    padding-bottom: 10px;
+}
+
+i {
+    font-style: normal;
+    font-weight: 800;
+    color: #d35400;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+li {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(41, 128, 185, 0.05);
+    border-radius: 12px;
+}
+
+ul ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px dashed #bdc3c7;
+}
+
+ul ul li {
+    background: transparent;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+p {
+    margin: 5px 0 0 0;
+    color: #34495e;
+}
+        
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+    </head>
+    <body>
+        <header>
+            <h1>The Begining of Planet Earth</h1>
+        </header>
+        <div id="formation" class="contents">
+<h2>1. The Solar Nebula: From Cloud to Disk</h2>
+<p>The transition from a shapeless cloud to a structured solar system is defined by physics that we still see in action today.</p>
+<ul>
+    <li><i>The Shockwave Trigger:</i><p>Space is mostly empty, and gas clouds don't just collapse on their own. They need a "push." A nearby Supernova (a dying star) provided a shockwave that compressed the gas. This also seeded our solar system with heavy elements like Gold, Uranium, and Lead—elements that can only be forged in a star's death.</p></li>
+    <li><i>Conservation of Angular Momentum:</i><p>Think of a figure skater. When they pull their arms in, they spin faster. As gravity pulled the nebula inward, the rotation sped up until the centrifugal force flattened the outer edges into a Protoplanetary Disk (the "pancake" shape).</p></li>
+    <li><i>The T-Tauri Phase:</i><p>Early on, the Sun was a "T-Tauri star"—it was extremely unstable and blew out a massive "solar wind." This wind cleared the inner solar system of light gases (Hydrogen and Helium), leaving only the heavy, rocky dust behind to form Earth.</p></li>
+</ul>
+        </div>
+        <div id="accretion" class="contents">
+<h2>2. Accretion: The "Attaching" Phase</h2>
+<p>This is the story of how tiny dust bunnies became a 6-sextillion-ton planet.In this process large bodies are formed by the gravitational influence.</p>
+<ul>
+    <li><i>Der Waals Forces:</i><p> In the very beginning, gravity was too weak to hold dust together. Instead, electrostatic forces (the same "static" that makes hair stick to a balloon) caused tiny grains to clump.</p></li>
+    <li><i>Planetesimals and "Runaway Growth":</i><p> Once a clump reached about 1 km in size, its own gravity became the dominant force. It started "vacuuming" up everything in its orbital path. The bigger it got, the more gravity it had; the more gravity it had, the faster it grew. This is called "Runaway Accretion."</p></li>
+    <li><i>Protoplanetary Embryos:</i><p> By the end of this stage, the solar system was a "shooting gallery" of about 20–30 Moon-to-Mars-sized objects (embryos) crashing into one another.</p></li>
+</ul>
+        </div>
+        <div id="collision" class="contents">
+<h2>3. The "Big Whack": The Genesis of the Moon and Seasons</h2>
+<p>The collision with Theia (a Mars-sized protoplanet) wasn't just a "hit and run"—it fundamentally re-engineered Earth's physical properties.</p>
+<ul>
+    <li><i>The Impact:</i><p> Theia (a planet the size of Mars) hit Earth at roughly 10 kilometers per second (22,000 mph). The energy released was enough to completely vaporize the outer layers of both planets.</p></li>
+    <li><i>The Magma Ocean:</i><p> The heat was so intense (2,000°C or 3,600°F) that the entire surface of Earth became a liquid ocean of lava, hundreds of miles deep.</p></li>
+    <li><i>The Glancing Blow:</i><p> Theia had hit Earth dead-center, both planets might have been completely pulverized into a new asteroid belt. Instead, it hit at an angle. This off-center impact is what gave Earth its rapid rotation (originally, a day was only about 5–6 hours long).</p></li>
+    <li><i>The Axial Tilt:</i><p> The force of the impact knocked Earth "sideways," creating our 23.5 ∘tilt. Without this "accident," we wouldn't have seasons. One side of the planet would be significantly more weathered than the other, and agriculture as we know it would be impossible.</p></li>
+    <li><i>The Synestia Phase:</i><p> For a brief period after the hit, Earth wasn't even a solid planet. It was likely a Synestia—a donut-shaped cloud of vaporized rock and metal spinning incredibly fast. As this "donut" cooled, the outer fringe clumped into the Moon, while the center condensed back into the Earth.</p></li>
+    <li><i>The Tidal Brake:</i><p> When the Moon first formed, it was 15 times closer to Earth than it is today. It looked massive in the sky! Its gravity caused enormous "magma tides" in Earth's molten surface, eventually slowing Earth's rotation down to the 24-hour day we have now.</p></li>
+</ul>
+        </div>
+        <div id="differentiation" class="contents">
+<h2>4. Differentiation: The Great Layering</h2>
+<p>This is the "Iron Catastrophe." Imagine Earth as a giant blast furnace where gravity acts as the separator.</p>
+<ul>
+    <li><i>The Immiscibility of Magma:</i><p> Just like oil and vinegar don't mix, molten iron and molten silicate (rock) don't mix. Because iron is much denser, it formed "diapirs"—massive droplets of liquid metal miles wide—that "sank" through the softer rock toward the center.</p></li>
+    <li><i>The Kinetic Heat Engine:</i><p> As these billions of tons of iron fell toward the center, they gained speed. When they slammed into the core, that kinetic energy was converted into heat. This added another 2,000°C to the core's temperature, ensuring it would stay molten for billions of years.</p></li>
+    <li><i>The Inner Core vs. Outer Core:</i></li>
+    <ul>
+        <li>The Outer Core stayed liquid. Because Earth spins, this liquid iron sloshes around in spirals (the Coriolis Effect), creating a massive "Electromagnet."</li>
+        <li>The Inner Core, despite being hotter, is solid. This is because the pressure at the center of the Earth is so immense (3.6 million times sea-level pressure) that the atoms are forced into a solid state.</li>
+    </ul>
+    <li><i>The Rare Earth Paradox:</i><p> Most of the "siderophile" (iron-loving) elements—like Gold, Platinum, and Iridium—sank to the core during this time. The gold we mine today actually arrived later via asteroid impacts after the crust had already hardened; otherwise, all the world's gold would be 3,000 miles underground!</p></li>
+</ul>
+        </div>
+        <div id="oceanforms" class="contents">
+<h2>5. Atmosphere & Oceans: The "Cooling" and "Filling"</h2>
+<p>Once the surface began to harden, Earth had to figure out how to keep its water and air from floating away into the vacuum of space.</p>
+<ul>
+    <li><i>The Primary vs. Secondary Atmosphere:</i></li>
+    <ul>
+        <li><i>Primary Atmosphere:</i><p> Mostly Hydrogen and Helium (captured from the solar nebula). This was too light and was "blown away" by the Sun's radiation.</p></li>
+        <li><i>Secondary Atmosphere:</i><p> Created by Outgassing. As the mantle swirled, trapped gases (Water vapor, CO2, Nitrogen, Methane) were vomited out by millions of volcanoes. This created a thick, toxic, "smoggy" sky—deep orange or red in color.</p></li>
+    </ul>
+    <li><i>The Hydrologic Collapse:</i><p> For millions of years, the atmosphere was so hot that water could only exist as steam. As the crust finally cooled below 100°C, the "Great Rain" began. This wasn't a weekend storm; it was a global monsoon that likely lasted for thousands, perhaps millions, of years.</p></li>
+    <li><i>The Salinity of the Seas:</i><p> As that rain fell, it reacted with the CO2 in the air to form carbonic acid (weak acid rain). This rain dissolved minerals and salts out of the rocks on land and carried them into the basins. This is why the oceans are salty and the land is (mostly) fresh.</p></li>
+    <li><i>The Late Heavy Bombardment (LHB):</i><p> About 3.9 billion years ago, a "delivery service" of icy comets and asteroids from the outer solar system hit Earth. While Earth already had some water from outgassing, the LHB likely provided the "top-off" that gave us our deep, global oceans.</p></li>
+</ul>
+        </div>
+        <center><a href="Arrival of life on Earth.html"><button style="background-color: #f1c40f; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; padding: 30px 20px; border-bottom-left-radius: 10px; font-size: 30px; border-top-right-radius:10px;">Learn about arrival of Life</button></a></center>
+    
+
+</body>
+</html>

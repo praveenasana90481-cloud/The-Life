@@ -1,0 +1,503 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meiosis</title>
+    <style>
+        body {
+            background-color: rgb(204, 255, 204);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #content {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgb(153, 204, 255);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        h1 {
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 60px;
+            color: rgb(0, 102, 204);
+            background-color: aliceblue;
+            border-radius: 15px;
+            padding: 10px;
+            text-align: center;
+        }
+        video {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .contents {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: #f9f9f9;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .contents.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contents b {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+            color: darkblue;
+        }
+        .contents p {
+            color: #333;
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        h2 {
+            color: darkred;
+            margin-top: 15px;
+        }
+        .mitosis-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 22px;
+            border: none;
+            border-radius: 12px;
+            background-color: #0077b6;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .mitosis-btn:hover {
+            background-color: #023e8a;
+        }
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <div id="content">
+        <h1>Meiosis</h1>
+        <video width="640" height="360" controls>
+            <source src="Meiosis_small.mp4" type="video/mp4">
+            Your browser doesn't support the video tag.
+        </video>
+
+        <div id="definition" class="contents">
+            <b>DEFINITION</b>
+            <p>
+                Meiosis is a specialized type of cell division that reduces the chromosome number by half, producing four genetically unique daughter cells. This process is essential for sexual reproduction, as it generates gametes (sperm and egg cells) with half the genetic material of the parent. When gametes fuse during fertilization, the full chromosome number is restored.
+            </p>
+            <p>
+                Unlike mitosis, which produces identical cells for growth and repair, meiosis introduces genetic variation through processes such as crossing over and independent assortment. This variation is the foundation of diversity in sexually reproducing populations.
+            </p>
+        </div>
+
+        <div id="phases" class="contents">
+            <b>PHASES OF MEIOSIS</b>
+
+            <h2>Meiosis I – Prophase I</h2>
+            <p>
+                Prophase I is one of the most complex stages of meiosis. Chromosomes condense and pair up with their homologous partners, forming structures called tetrads. During this stage, crossing over occurs: segments of DNA are exchanged between homologous chromosomes. This process creates new combinations of genes, ensuring genetic diversity in offspring.
+            </p>
+            <p>
+                The nuclear envelope breaks down, and spindle fibers begin to form. The paired homologous chromosomes remain attached at points called chiasmata, where crossing over has taken place. This unique feature distinguishes meiosis from mitosis.
+            </p>
+
+            <h2>Meiosis I – Metaphase I</h2>
+            <p>
+                In metaphase I, homologous chromosome pairs align along the metaphase plate. Unlike mitosis, where individual chromosomes line up, meiosis involves pairs of homologs. This arrangement allows the cell to separate homologous chromosomes into different daughter cells.
+            </p>
+            <p>
+                The orientation of each pair is random, a phenomenon known as independent assortment. This randomness further increases genetic variation by producing different combinations of maternal and paternal chromosomes in gametes.
+            </p>
+
+            <h2>Meiosis I – Anaphase I</h2>
+            <p>
+                During anaphase I, spindle fibers pull homologous chromosomes apart toward opposite poles of the cell. Sister chromatids remain attached at their centromeres, unlike in mitosis where they separate. This reductional division ensures that each daughter cell receives only one chromosome from each homologous pair.
+            </p>
+            <p>
+                The separation of homologs reduces the chromosome number by half, preparing the cell for the second meiotic division.
+            </p>
+
+            <h2>Meiosis I – Telophase I & Cytokinesis</h2>
+            <p>
+                In telophase I, chromosomes reach opposite poles, and nuclear envelopes may reform around them. The cell then undergoes cytokinesis, splitting into two daughter cells. Each of these cells is haploid, containing half the original chromosome number, but each chromosome still consists of two sister chromatids.
+            </p>
+            <p>
+                These haploid cells will now enter the second meiotic division without replicating their DNA again.
+            </p>
+
+            <h2>Meiosis II – Prophase II</h2>
+            <p>
+                In prophase II, a new spindle apparatus forms in each haploid cell. The nuclear envelope, if it reformed during telophase I, breaks down again. Chromosomes, still composed of sister chromatids, prepare to be separated.
+            </p>
+            <p>
+                Unlike prophase I, there is no crossing over here. The purpose of meiosis II is to separate sister chromatids, similar to mitosis.
+            </p>
+
+            <h2>Meiosis II – Metaphase II</h2>
+            <p>
+                Chromosomes align individually along the metaphase plate in each haploid cell. Spindle fibers attach to the centromeres of sister chromatids, preparing them for separation.
+            </p>
+            <p>
+                This stage resembles metaphase in mitosis, but the cells are haploid, ensuring the final products will have half the chromosome number of the original parent cell.
+            </p>
+
+            <h2>Meiosis II – Anaphase II</h2>
+            <p>
+                Sister chromatids finally separate as spindle fibers pull them toward opposite poles. Each chromatid is now considered an independent chromosome. This ensures that each daughter cell will receive a complete set of genetic material.
+            </p>
+            <p>
+                The separation in anaphase II is critical for producing gametes with the correct chromosome number.
+            </p>
+
+            <h2>Meiosis II – Telophase II & Cytokinesis</h2>
+            <p>
+                In telophase II, chromosomes de-condense back into chromatin, and nuclear envelopes reform around each set. Cytokinesis follows, dividing the cytoplasm. The result is four haploid daughter cells, each genetically unique due to crossing over and independent assortment.
+            </p>
+            <p>
+                These cells become gametes in animals (sperm or eggs) or spores in plants. Their genetic uniqueness is the basis of variation in sexually reproducing populations.
+            </p>
+        </div>
+
+    </div>
+    <center><a href="../Tissues/Tissues.html"><button style="background-color: #f1c40f; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; padding: 30px 20px; border-radius: 10px; font-size: 30px;">CLick To Know What Happens Later</button></a></center>
+
+    <script>
+        const contents = document.querySelectorAll('.contents');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        contents.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>

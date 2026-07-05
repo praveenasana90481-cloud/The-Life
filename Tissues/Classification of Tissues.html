@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tissues</title>
+    <style>
+:root {
+    --dark-blue: #2c3e50;
+    --green: #27ae60;
+    --red: #e74c3c;
+    --gray: #f4f4f4;
+    --light-shadow: rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+}
+header p {
+    max-width: 700px;
+    margin: 15px auto 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px var(--light-shadow);
+    transition: transform 0.2s ease;
+}
+.section:hover {
+    transform: translateY(-3px);
+}
+h2 {
+    color: var(--dark-blue);
+    border-bottom: 2px solid var(--gray);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.overview-box {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.box {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px var(--light-shadow);
+    transition: transform 0.2s ease;
+}
+.box:hover {
+    transform: scale(1.03);
+}
+.plant-box { background-color: var(--green); }
+.animal-box { background-color: var(--red); }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+th, td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #eee;
+    font-weight: bold;
+}
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.list-style {
+    padding-left: 20px;
+}
+.list-style li {
+    margin-bottom: 10px;
+    position: relative;
+}
+.list-style li::before {
+    content: "•";
+    color: var(--dark-blue);
+    font-weight: bold;
+    position: absolute;
+    left: -15px;
+}
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1>TISSUES</h1>
+    <p>
+        Tissues are groups of similar cells that work together to carry out a specific function. 
+        They form the basic structural and functional framework in both plants and animals, 
+        helping in growth, support, transport, movement, and coordination. 
+        In essence, tissues act as the link between individual cells and larger organs or systems.
+    </p>
+</header>
+
+<div class="container">
+
+    <section class="section">
+        <h2>Classification of Tissues</h2>
+        <p>
+            Tissues are groups of cells that work together to perform a specific job. 
+            Broadly, they are categorized into plant tissues and animal tissues.
+        </p>
+        <div class="overview-box">
+            <div class="box plant-box">
+                <strong>Plant Tissues</strong>
+                <p>
+                    Plant tissues help in growth, transport of water and nutrients, and provide support. 
+                    They enable plants to stand upright, distribute food and water throughout their structure, 
+                    and continue growing throughout their life.
+                </p>
+            </div>
+            <div class="box animal-box">
+                <strong>Animal Tissues</strong>
+                <p>
+                    Animal tissues form organs and systems, enabling movement, protection, communication, and coordination. 
+                    They allow animals to respond quickly to their environment, move freely, and maintain internal balance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>General Characteristics</h2>
+        <ul class="list-style">
+            <li><strong>Cellular Grouping:</strong> Tissues are formed by clusters of similar cells that share structural features.</li>
+            <li><strong>Common Purpose:</strong> All cells in a tissue coordinate to perform a specialized function such as support, transport, movement, or communication.</li>
+            <li><strong>Origin:</strong> Cells within a tissue usually arise from the same embryonic or developmental origin, ensuring uniformity in their role.</li>
+            <li><strong>Arrangement:</strong> Cells are organized in specific patterns (layers, bundles, or networks) that suit their function and efficiency.</li>
+            <li><strong>Interdependence:</strong> Tissues interact with other tissues to form organs and organ systems, working together for overall function.</li>
+            <li><strong>Adaptability:</strong> Depending on the organism, tissues can adapt structurally (e.g., thickened walls in plants, muscle growth in animals) to meet environmental or functional demands.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Differences</h2>
+        <div class="table-wrapper">
+<table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Plant Tissues</th>
+                    <th>Animal Tissues</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Support</strong></td>
+                    <td>Provide rigidity and strength to keep the plant upright in one place.</td>
+                    <td>Provide flexibility and elasticity, allowing animals to move freely.</td>
+                </tr>
+                <tr>
+                    <td><strong>Living Status</strong></td>
+                    <td>Often include many <b>dead cells</b> (like xylem) that add strength and durability.</td>
+                    <td>Almost all cells are <b>living</b>, actively participating in body functions.</td>
+                </tr>
+                <tr>
+                    <td><strong>Growth</strong></td>
+                    <td>Growth is localized at specific regions (tips of roots and shoots).</td>
+                    <td>Growth occurs more uniformly across tissues throughout the body.</td>
+                </tr>
+                <tr>
+                    <td><strong>Energy</strong></td>
+                    <td>Require <b>less energy</b> since plants remain stationary.</td>
+                    <td>Require <b>more energy</b> to support movement and active processes.</td>
+                </tr>
+                <tr>
+                    <td><strong>Structure</strong></td>
+                    <td>Organization is relatively simple and repetitive, focused on support and transport.</td>
+                    <td>Organization is complex, forming organs and systems for specialized functions.</td>
+                </tr>
+                <tr>
+                    <td><strong>Coordination</strong></td>
+                    <td>Functions are mainly regulated by hormones and environmental factors.</td>
+                    <td>Functions are coordinated by both the nervous system and hormones.</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+    </section>
+    <center><a href="Plant tissue"><button style="border-radius: 20px; font-size: 30px; padding: 30px 40px; background-color: #f1c40f; color: #ffffff;">Click to know about Plant Tissue</button></a></center>
+
+</div>
+
+</body>
+</html>

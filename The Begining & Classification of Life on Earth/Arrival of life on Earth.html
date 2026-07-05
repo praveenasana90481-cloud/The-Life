@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Arrival of Life on Earth</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: #f1c40f;
+            padding: 60px 20px;text-align: center;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            margin: 0;font-size: 3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        .section-box {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-left: 12px solid #3498db;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 18px;
+            padding: 15px;
+            background: #f9fbfb;
+            border-radius: 10px;
+            border-bottom: 1px solid #edf2f2;
+        }
+
+        li b {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #prebiotic-era { border-color: #95a5a6; }
+        #hydrothermal-origin { border-color: #16a085; }
+        #rna-world-stage { border-color: #8e44ad; }
+        #prokaryotic-life { border-color: #f39c12; }
+        #oxygenation-event { border-color: #27ae60; }
+        #complex-eukaryotes { border-color: #2980b9; }
+        #cambrian-explosion { border-color: #e74c3c; }
+        #land-colonization { border-color: #2ecc71; }
+        #mass-extinctions { border-color: #34495e; }
+        #age-of-mammals { border-color: #d35400; }
+        #ape-evolution { border-color: #8b4513; }
+
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<center>
+    <header>
+        <h1>The Arrival Of Life On Earth</h1>
+    </header>
+</center>
+
+<div class="section-box" id="prebiotic-era">
+    <h2>1. The Prebiotic Foundation</h2>
+    <p>The early Earth was a volatile mix of volcanic gases and heavy bombardment. Life didn't start as a cell, but as a series of chemical "accidents" in the primitive atmosphere and oceans.</p>
+    <ul>
+        <li><b>The Miller-Urey Chemistry:</b> Laboratory recreations show that Earth's early atmosphere, when struck by lightning, naturally produces 20 different amino acids.</li>
+        <li><b>Cosmic Delivery:</b> Carbonaceous meteorites have been found to contain nucleobases—the structural components of DNA—suggesting some ingredients came from space.</li>
+        <li><b>Polymerization:</b> On hot clay surfaces or near volcanic pools, simple molecules began to link together into long chains, forming the first complex polymers.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="hydrothermal-origin">
+    <h2>2. The Deep-Sea Cradle</h2>
+    <p>Many biologists believe the surface was too dangerous for life due to asteroid impacts. Instead, life likely found a sanctuary in the dark, mineral-rich depths of the ocean floor.</p>
+    <ul>
+        <li><b>Black Smokers:</b> These vents provide a constant stream of hydrogen, methane, and ammonia, which early microbes could use for fuel without needing sunlight.</li>
+        <li><b>The Proton Pump:</b> The pH difference between vent fluids and seawater provided a natural energy source that mimic the way our own cells produce energy today.</li>
+        <li><b>Metabolic Protection:</b> Deep water provided a shield against the Sun’s lethal ultraviolet radiation, which would have destroyed any unprotected DNA on the surface.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="rna-world-stage">
+    <h2>3. The RNA World</h2>
+    <p>Before the complex partnership of DNA and Proteins, a more versatile molecule ruled the Earth. RNA was the "jack-of-all-trades" that allowed life to begin storing information.</p>
+    <ul>
+        <li><b>Self-Catalysis:</b> RNA molecules called "ribozymes" can chop and change other molecules, acting as both a blueprint and a chemical worker.</li>
+        <li><b>The Protocell:</b> Microscopic droplets of fat (lipids) naturally formed spheres. When RNA entered these spheres, it created the first "inside" vs "outside" boundary.</li>
+        <li><b>Natural Selection:</b> RNA sequences that were better at copying themselves survived longer, beginning the billions-of-years-long process of evolution.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="prokaryotic-life">
+    <h2>4. The First Microbes</h2>
+    <p>For nearly 2 billion years, Earth was a "Planet of the Bacteria." These simple, single-celled organisms mastered every chemical environment on the planet.</p>
+    <ul>
+        <li><b>Archaea:</b> These "extremophiles" lived in boiling mud and salt lakes, breathing sulfur and producing methane as they expanded across the globe.</li>
+        <li><b>Stromatolite Reefs:</b> Giant domes of bacteria built rock-like structures in shallow bays, some of which are still visible as fossils today.</li>
+        <li><b>Horizontal Gene Transfer:</b> Early bacteria traded DNA like computer code, allowing beneficial mutations to spread through the population at incredible speeds.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="oxygenation-event">
+    <h2>5. The Great Oxidation</h2>
+    <p>A single group of bacteria changed the color of the sky and the chemistry of the rocks. This was the first and largest case of biological "pollution" in history.</p>
+    <ul>
+        <li><b>Solar Harvesting:</b> Cyanobacteria evolved the ability to split water molecules using sunlight, releasing Oxygen as a byproduct.</li>
+        <li><b>The Rusting of Earth:</b> Oxygen was originally toxic to life. It reacted with iron in the oceans, turning the sea red with rust before it eventually leaked into the sky.</li>
+        <li><b>Ozone Shield:</b> The accumulation of Oxygen created the Ozone Layer, which finally allowed life to exist near the surface of the water without being fried by UV rays.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="complex-eukaryotes">
+    <h2>6. The Rise of Eukaryotes</h2>
+    <p>Complexity arrived when cells stopped eating each other and started living together. This "merger" allowed for cells that were 10,000 times larger than bacteria.</p>
+    <ul>
+        <li><b>Mitochondrial Acquisition:</b> One cell swallowed a bacterium that was good at processing oxygen. Instead of being digested, it became the "Powerhouse" of the cell.</li>
+        <li><b>The Nucleus:</b> Eukaryotes developed a "library" (the nucleus) to protect their massive amounts of DNA, allowing for more complex instructions.</li>
+        <li><b>Multicellularity:</b> Cells began to communicate and stick together, forming the first sponges and algae. This was the blueprint for every plant and animal today.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="cambrian-explosion">
+    <h2>7. The Cambrian Explosion</h2>
+    <p>About 541 million years ago, the "slow crawl" of evolution turned into a sprint. Within a short window, almost every major body plan of animals appeared.</p>
+    <ul>
+        <li><b>The Evolution of Eyes:</b> Once predators could see, an "arms race" began. Prey developed shells, spikes, and camouflage to survive.</li>
+        <li><b>Mineralization:</b> Animals learned to pull calcium from the water to build skeletons and teeth, allowing them to grow larger and stronger.</li>
+        <li><b>Trilobites:</b> The most successful early animals, trilobites dominated the seafloor for 250 million years, diversifying into thousands of species.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="land-colonization">
+    <h2>8. The Colonization of Land</h2>
+    <p>The continents were once dry, barren deserts. It took a partnership between plants and fungi to turn the "brown" Earth into "green."</p>
+    <ul>
+        <li><b>Mosses and Ferns:</b> The first land plants were small and hugged the ground, staying near water to reproduce before the invention of seeds.</li>
+        <li><b>The First Insects:</b> Spiders and millipedes were the first animals to breathe air, following the plants onto land to escape ocean predators.</li>
+        <li><b>Tetrapods:</b> Eventually, fish-like creatures with sturdy fins began to crawl through swamps, evolving into the first amphibians and reptiles.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="mass-extinctions">
+    <h2>9. Mass Extinctions & Resilience</h2>
+    <p>Life has been wiped out almost entirely at least five times. Each time, the survivors were the "innovators" who inherited the Earth.</p>
+    <ul>
+        <li><b>The Great Dying:</b> 252 million years ago, massive volcanic eruptions killed 96% of sea life. This cleared the path for the Dinosaurs to rise.</li>
+        <li><b>The K-Pg Impact:</b> A 10km asteroid ended the age of Dinosaurs 66 million years ago. Small, burrowing mammals survived, leading directly to the rise of humans.</li>
+        <li><b>Genetic Legacy:</b> Every living creature today is a survivor of billions of years of catastrophes, carrying the DNA of the most resilient ancestors in history.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="age-of-mammals"> 
+    <h2>10. The Age of Mammals (Cenozoic)</h2>
+    <p>After the asteroid impact 66 million years ago, the giant reptiles were gone. This left the world wide open for small, warm-blooded creatures that had lived in the shadows for millions of years.</p>
+    <ul>
+        <li><b>Adaptive Radiation:</b> Mammals quickly evolved from tiny, shrew-like insect eaters into a massive variety of forms, from giant whales in the ocean to massive woolly mammoths on land.</li>
+        <li><b>Primate Beginnings:</b> Around 55 million years ago, small tree-dwelling primates appeared. They developed forward-facing eyes for depth perception and grasping hands to navigate the forest canopy.</li>
+        <li><b>The Grassland Shift:</b> As the Earth cooled and dried, thick jungles began to disappear, replaced by open grasslands. This forced many forest species to adapt to a new life on the ground.</li>
+    </ul>
+</div>
+
+<div class="section-box" id="ape-evolution">
+    <h2>11. The Evolution of Apes and Hominids</h2>
+    <p>The journey from the trees to the savanna is the final chapter of our biological history. It is characterized by the growth of the brain and the mastery of the upright walk.</p>
+    <ul>
+        <li><b>The Great Ape Split:</b> Between 15 and 20 million years ago, the first true apes appeared in Africa and Asia. About 6 to 7 million years ago, the lineage split into two branches: one leading to modern Chimpanzees and the other to Humans.</li>
+        <li><b>Bipedalism (Walking Upright):</b> Early hominids like <i>Ardipithecus</i> and <i>Australopithecus</i> (famously "Lucy") began walking on two legs. This was likely an energy-efficient way to travel across expanding grasslands and freed the hands to carry food and tools.</li>
+        <li><b>The Brain Boom:</b> With the hands free to use tools and the transition to a more calorie-rich diet (meat and cooked food), the genus <i>Homo</i> saw a massive increase in brain size. This led to the development of complex language, social structures, and abstract thought.</li>
+        <li><b>Homo Sapiens:</b> Appearing roughly 300,000 years ago in Africa, our species eventually migrated across the entire globe, becoming the first organism to consciously reflect on the 4-billion-year history that created it.</li>
+    </ul>
+</div>
+<center><a href="Classification of Early organisms.html"><button style="border-radius: 20px; font-size: 30px; padding: 30px 40px; background-color: #f1c40f; color: #ffffff;">How are organisms classified</button></a></center>
+
+</body>
+</html>

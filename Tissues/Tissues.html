@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tissues</title>
+    <style>
+        :root {
+            --dark-blue: #2c3e50;
+            --green: #27ae60;
+            --red: #e74c3c;
+            --blue: #3498db;
+            --purple: #8e44ad;
+            --yellow: #f1c40f;
+            --gray: #f4f4f4;
+            --light-shadow: rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            color: #333;
+            background: linear-gradient(135deg, #f9f9f9, #eef5f9);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            letter-spacing: 2px;
+        }
+
+        header p {
+            max-width: 850px;
+            margin: 18px auto 0;
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            opacity: 0.95;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 15px;
+        }
+
+        .section {
+            background: white;
+            padding: 28px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px var(--light-shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            color: var(--dark-blue);
+            border-bottom: 3px solid var(--gray);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+        }
+
+        h3 {
+            color: var(--dark-blue);
+            margin-top: 10px;
+        }
+
+        p, li {
+            font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+        }
+
+        .highlight {
+            background: #ecf7ff;
+            border-left: 5px solid var(--blue);
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .overview-box,
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .box,
+        .info-card {
+            padding: 22px;
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 3px 10px var(--light-shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .box:hover,
+        .info-card:hover {
+            transform: scale(1.03);
+        }
+
+        .box strong,
+        .info-card strong {
+            font-size: 1.25rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .plant-box {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .animal-box {
+            background: linear-gradient(135deg, #e74c3c, #ff7675);
+        }
+
+        .blue-card {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+        }
+
+        .purple-card {
+            background: linear-gradient(135deg, #8e44ad, #af7ac5);
+        }
+
+        .green-card {
+            background: linear-gradient(135deg, #16a085, #48c9b0);
+        }
+
+        .orange-card {
+            background: linear-gradient(135deg, #e67e22, #f5b041);
+        }
+
+        .list-style {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .list-style li {
+            margin-bottom: 12px;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 700px;
+        }
+
+        th, td {
+            padding: 14px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #eaf2f8;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+
+        .memory-box {
+            background: #fff8e1;
+            border-left: 6px solid var(--yellow);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .button-area {
+            text-align: center;
+            margin: 35px 0 10px;
+        }
+
+        .main-button {
+            display: inline-block;
+            border-radius: 35px;
+            font-size: clamp(1rem, 4vw, 1.7rem);
+            padding: 18px 35px;
+            background-color: var(--yellow);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+            transition: 0.3s ease;
+        }
+
+        .main-button:hover {
+            transform: scale(1.05);
+            background-color: #d4ac0d;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 38px 15px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 12px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 32px 12px;
+            }
+
+            .section {
+                padding: 16px;
+                border-radius: 10px;
+            }
+
+            .main-button {
+                width: 100%;
+                padding: 15px 18px;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+        }
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>TISSUES</h1>
+    <p>
+        Tissues are groups of similar cells that work together to perform a specific function.
+        They are the basic building units between cells and organs. In plants and animals,
+        tissues help in growth, support, transport, protection, movement, coordination, and survival.
+    </p>
+</header>
+
+<div class="container">
+
+    <section class="section">
+        <h2>Introduction</h2>
+        <p>
+            A living organism is made up of many cells. In unicellular organisms, a single cell performs
+            all life activities. But in multicellular organisms like plants, animals, and humans, different
+            groups of cells perform different functions. These groups of specialized cells are called tissues.
+        </p>
+
+        <div class="highlight">
+            <strong>Simple Definition:</strong>
+            A tissue is a group of similar cells having a common origin and working together to perform a particular function.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Why Are Tissues Important?</h2>
+        <ul class="list-style">
+            <li>They divide work among different groups of cells.</li>
+            <li>They help organisms perform activities efficiently.</li>
+            <li>They form organs such as leaves, roots, heart, lungs, muscles, and brain.</li>
+            <li>They help in growth, repair, protection, transport, and movement.</li>
+            <li>They make the body of plants and animals organized and functional.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Levels of Organization</h2>
+        <p>
+            In multicellular organisms, the body is arranged in a step-by-step manner.
+        </p>
+
+        <div class="card-grid">
+            <div class="info-card blue-card">
+                <strong>1. Cell</strong>
+                The basic structural and functional unit of life.
+                Example: nerve cell, muscle cell, plant cell.
+            </div>
+
+            <div class="info-card green-card">
+                <strong>2. Tissue</strong>
+                A group of similar cells performing one specific function.
+                Example: xylem tissue, muscle tissue.
+            </div>
+
+            <div class="info-card purple-card">
+                <strong>3. Organ</strong>
+                A group of tissues working together.
+                Example: leaf, root, heart, stomach.
+            </div>
+
+            <div class="info-card orange-card">
+                <strong>4. Organ System</strong>
+                A group of organs performing a major body function.
+                Example: digestive system, nervous system.
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Classification of Tissues</h2>
+        <p>
+            Tissues are broadly classified into two main types: plant tissues and animal tissues.
+            Both types are different because plants are usually stationary, while animals move from place to place.
+        </p>
+
+        <div class="overview-box">
+            <div class="box plant-box">
+                <strong>Plant Tissues</strong>
+                Plant tissues help in growth, support, protection, and transport of water, minerals, and food.
+                They help plants stand upright and survive in different environments.
+            </div>
+
+            <div class="box animal-box">
+                <strong>Animal Tissues</strong>
+                Animal tissues form organs and body systems. They help in movement, protection, coordination,
+                response to surroundings, and carrying materials inside the body.
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Plant Tissues</h2>
+        <p>
+            Plant tissues are mainly divided into meristematic tissues and permanent tissues.
+        </p>
+
+        <div class="card-grid">
+            <div class="info-card green-card">
+                <strong>Meristematic Tissue</strong>
+                These tissues contain actively dividing cells. They are responsible for plant growth.
+                They are found in root tips, shoot tips, and growing regions.
+            </div>
+
+            <div class="info-card blue-card">
+                <strong>Permanent Tissue</strong>
+                These tissues are formed from meristematic tissues. Their cells lose the ability to divide
+                and perform specific functions like support, storage, protection, and transport.
+            </div>
+        </div>
+
+        <h3>Examples of Plant Tissues</h3>
+        <ul class="list-style">
+            <li><strong>Parenchyma:</strong> Stores food and helps in photosynthesis.</li>
+            <li><strong>Collenchyma:</strong> Provides flexibility and support to young plant parts.</li>
+            <li><strong>Sclerenchyma:</strong> Provides strength and hardness to plants.</li>
+            <li><strong>Xylem:</strong> Transports water and minerals from roots to other parts.</li>
+            <li><strong>Phloem:</strong> Transports food prepared by leaves to different parts of the plant.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Animal Tissues</h2>
+        <p>
+            Animal tissues are more complex than plant tissues because animals need movement,
+            coordination, protection, and quick response to their surroundings.
+        </p>
+
+        <div class="card-grid">
+            <div class="info-card blue-card">
+                <strong>Epithelial Tissue</strong>
+                Covers and protects body surfaces and internal organs.
+                Example: skin, lining of mouth, lining of blood vessels.
+            </div>
+
+            <div class="info-card green-card">
+                <strong>Connective Tissue</strong>
+                Connects, supports, and binds different body parts.
+                Example: blood, bone, cartilage, ligaments, tendons.
+            </div>
+
+            <div class="info-card orange-card">
+                <strong>Muscular Tissue</strong>
+                Helps in movement by contraction and relaxation.
+                Example: muscles of arms, legs, heart, and intestine.
+            </div>
+
+            <div class="info-card purple-card">
+                <strong>Nervous Tissue</strong>
+                Receives and sends messages in the body.
+                Example: brain, spinal cord, and nerves.
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>General Characteristics of Tissues</h2>
+
+        <ul class="list-style">
+            <li><strong>Cellular Grouping:</strong> Tissues are made up of a group of similar cells.</li>
+            <li><strong>Common Function:</strong> Cells in a tissue work together for a particular purpose.</li>
+            <li><strong>Same Origin:</strong> Cells of a tissue usually arise from the same developmental origin.</li>
+            <li><strong>Specific Arrangement:</strong> Cells are arranged in a pattern suitable for their function.</li>
+            <li><strong>Specialization:</strong> Each tissue is specialized to perform a particular activity.</li>
+            <li><strong>Coordination:</strong> Tissues work together to form organs and organ systems.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Differences Between Plant Tissues and Animal Tissues</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Plant Tissues</th>
+                        <th>Animal Tissues</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><strong>Function</strong></td>
+                        <td>Mainly help in growth, support, storage, and transport.</td>
+                        <td>Help in movement, protection, coordination, and body functions.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Growth</strong></td>
+                        <td>Growth occurs only in specific regions such as root and shoot tips.</td>
+                        <td>Growth occurs more uniformly in different body parts.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Living Status</strong></td>
+                        <td>Some tissues contain dead cells, such as xylem and sclerenchyma.</td>
+                        <td>Most animal tissues are made of living cells.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Energy Requirement</strong></td>
+                        <td>Require less energy because plants are stationary.</td>
+                        <td>Require more energy because animals move actively.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Complexity</strong></td>
+                        <td>Comparatively simple in structure and function.</td>
+                        <td>More complex and highly specialized.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Coordination</strong></td>
+                        <td>Mainly controlled by plant hormones.</td>
+                        <td>Controlled by nervous system and hormones.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Examples</strong></td>
+                        <td>Meristematic tissue, xylem, phloem, parenchyma.</td>
+                        <td>Epithelial, connective, muscular, and nervous tissues.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Simple Examples from Daily Life</h2>
+
+        <ul class="list-style">
+            <li>The skin on our body is made of epithelial tissue and protects us from germs.</li>
+            <li>Blood is a connective tissue that transports oxygen, food, and waste materials.</li>
+            <li>Muscles help us walk, run, write, smile, and lift objects.</li>
+            <li>Nervous tissue helps us feel pain, touch, heat, cold, and respond quickly.</li>
+            <li>Xylem in plants carries water from roots to leaves.</li>
+            <li>Phloem carries food prepared by leaves to other parts of the plant.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Quick Memory Points</h2>
+
+        <div class="memory-box">
+            <p><strong>Remember:</strong></p>
+            <ul class="list-style">
+                <li><strong>Plant tissues:</strong> Growth, support, transport, storage.</li>
+                <li><strong>Animal tissues:</strong> Protection, movement, connection, coordination.</li>
+                <li><strong>Xylem:</strong> Carries water.</li>
+                <li><strong>Phloem:</strong> Carries food.</li>
+                <li><strong>Muscle tissue:</strong> Helps in movement.</li>
+                <li><strong>Nervous tissue:</strong> Sends messages.</li>
+            </ul>
+        </div>
+    </section>
+
+    
+
+
+<section class="section">
+    <h2>How Tissues Help Living Organisms</h2>
+    <p>
+        In multicellular organisms, millions of cells are present, but all cells do not do the same work.
+        This arrangement is called division of labour. For example, some cells protect the body, some help
+        in movement, some carry materials, and some send messages. Because of this specialization, the body
+        can work in an organized and efficient way.
+    </p>
+    <p>
+        In plants, tissues are mainly designed for support, growth, protection, and transport because plants
+        remain fixed in one place. In animals, tissues are more specialized for movement, coordination,
+        protection, and quick response to the surroundings.
+    </p>
+</section>
+
+<section class="section">
+        <h2>Conclusion</h2>
+        <p>
+            Tissues are essential for the proper functioning of living organisms. They help divide work
+            among different cells and allow organisms to perform life processes effectively.
+            Plant tissues mainly focus on growth, support, and transport, while animal tissues are designed
+            for movement, protection, coordination, and complex body functions.
+        </p>
+    </section>
+
+    <div class="button-area">
+        <a href="Plant%20tissue.html" class="main-button">
+            Click to know about Plant Tissue
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

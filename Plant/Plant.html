@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #f0fff0;
+            color: #2c3e50;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        h1 {
+            color: #1b5e20;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        section {
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .description { background-color: #e8f5e9; }
+        .photosynthesis { background-color: #fff9c4; }
+        .respiration { background-color: #c5cae9; }
+        .transpiration { background-color: #b2dfdb; }
+        .reproduction { background-color: #f8bbd0; }
+        .transport { background-color: #d1c4e9; }
+        .adaptations { background-color: #c8e6c9; }
+        .role { background-color: #ffe0b2; }
+        .functions { background-color: #f5f5dc; }
+        .conclusion { background-color: #f0f4c3; }
+        h3 {
+            margin-top: 15px;
+            color: #1b5e20;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    
+
+/* Premium CSS upgrade: responsive biology learning design */
+:root {
+    --bio-primary: #0f5132;
+    --bio-primary-2: #146c43;
+    --bio-secondary: #20c997;
+    --bio-accent: #ffd166;
+    --bio-coral: #ff6b6b;
+    --bio-sky: #4dabf7;
+    --bio-lavender: #845ef7;
+    --bio-bg: #f3fbf7;
+    --bio-bg-2: #edf7ff;
+    --bio-card: rgba(255,255,255,0.92);
+    --bio-text: #1f2d3d;
+    --bio-muted: #617080;
+    --bio-border: rgba(15,81,50,0.14);
+    --bio-shadow: 0 14px 40px rgba(16, 56, 40, 0.12);
+    --bio-soft-shadow: 0 8px 22px rgba(16, 56, 40, 0.10);
+    --bio-radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--bio-text) !important;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    line-height: 1.7;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(32,201,151,0.18), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(77,171,247,0.16), transparent 30%),
+        linear-gradient(135deg, var(--bio-bg), var(--bio-bg-2)) !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(15,81,50,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,81,50,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 75%);
+    z-index: -1;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 14px;
+}
+
+video, iframe {
+    border-radius: 20px;
+    box-shadow: var(--bio-shadow);
+    background: #000;
+}
+
+header, .header {
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+    background:
+        linear-gradient(135deg, rgba(15,81,50,0.95), rgba(32,201,151,0.88)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), transparent 34%) !important;
+    border: 0 !important;
+    border-radius: 0 0 32px 32px !important;
+    box-shadow: var(--bio-shadow) !important;
+    padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 48px) !important;
+    text-align: center;
+}
+
+header::after, .header::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    bottom: -90px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+}
+
+h1, header h1 {
+    margin-top: 0;
+    font-size: clamp(2rem, 6vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em;
+    color: inherit;
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: clamp(1.45rem, 4vw, 2.2rem) !important;
+    line-height: 1.22;
+    color: var(--bio-primary) !important;
+    margin-top: 0;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: clamp(1.12rem, 3vw, 1.45rem) !important;
+    color: var(--bio-primary-2) !important;
+}
+
+p, li, td, th {
+    font-size: clamp(0.96rem, 2.2vw, 1.05rem) !important;
+}
+
+p {
+    color: inherit;
+}
+
+.container, #container, main, .content {
+    width: min(1120px, calc(100% - 28px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#container, .container, .content, main {
+    padding-left: clamp(12px, 2vw, 24px) !important;
+    padding-right: clamp(12px, 2vw, 24px) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card, #infoBox, #mitosisBox {
+    max-width: 100%;
+    border-radius: var(--bio-radius) !important;
+    border: 1px solid var(--bio-border) !important;
+    box-shadow: var(--bio-soft-shadow) !important;
+}
+
+section, .section, .card, .box, .info-card, .diagram-card {
+    background: var(--bio-card) !important;
+    backdrop-filter: blur(10px);
+}
+
+section, .section {
+    padding: clamp(18px, 3vw, 32px) !important;
+    margin-bottom: clamp(18px, 3vw, 32px) !important;
+}
+
+.card, .box, .info-card, .diagram-card {
+    padding: clamp(16px, 2.5vw, 24px) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card:hover, .box:hover, .info-card:hover, .diagram-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bio-shadow) !important;
+    border-color: rgba(32,201,151,0.34) !important;
+}
+
+.grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+}
+
+a {
+    color: var(--bio-primary-2);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+button, a button, .btn, input[type="button"], input[type="submit"] {
+    max-width: 100%;
+    white-space: normal;
+    border: 0 !important;
+    border-radius: 999px !important;
+    padding: 14px 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15,81,50,0.18) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, a button:hover, .btn:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: saturate(1.05);
+    box-shadow: 0 14px 30px rgba(15,81,50,0.24) !important;
+}
+
+.org-btn {
+    min-width: 180px;
+    color: #102018 !important;
+    border: 2px solid rgba(255,255,255,0.7) !important;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--bio-border);
+    box-shadow: var(--bio-soft-shadow);
+    margin: 16px 0;
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: white;
+}
+
+th, td {
+    padding: 14px !important;
+    border: 1px solid #dfe8e2 !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: linear-gradient(135deg, #dff7e9, #e8f4ff) !important;
+    color: var(--bio-primary) !important;
+    font-weight: 800 !important;
+}
+
+tr:nth-child(even) td {
+    background: #fbfffc;
+}
+
+tr:hover td {
+    background: #f1fff7;
+}
+
+ul, ol {
+    padding-left: 1.35rem;
+}
+
+li {
+    margin-bottom: 0.45rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf7f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--bio-primary), var(--bio-secondary));
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    header, .header {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        border-radius: 0 0 22px 22px !important;
+    }
+
+    .container, #container, main, .content {
+        width: min(100% - 18px, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .grid, .overview-box, .complex-container, .card-grid, .diagram-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+    button, a button, .btn, input[type="button"], input[type="submit"] {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 13px 16px !important;
+    }
+
+    .org-btn {
+        min-width: 100%;
+    }
+
+    section, .section, .card, .box, .info-card, .diagram-card {
+        border-radius: 14px !important;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<h1>Plants</h1>
+<p style="text-align:center; font-style:italic;">
+    Plants are the green foundation of life, sustaining ecosystems and human civilization.
+</p>
+
+<section class="description">
+    <h2>Description</h2>
+    <p>
+        Plants are multicellular organisms that produce their own food through photosynthesis. 
+        They have specialized structures like roots, stems, leaves, and flowers. 
+        Plants are diverse, ranging from tiny mosses to giant trees, and they adapt to different environments to survive.
+    </p>
+</section>
+
+<section class="photosynthesis">
+    <h2>Photosynthesis</h2>
+    <p>
+        Photosynthesis is the process by which plants convert sunlight, carbon dioxide, and water into glucose and oxygen. 
+        It occurs in chloroplasts using the green pigment chlorophyll. The glucose produced is used for energy and growth, 
+        while oxygen is released into the atmosphere.
+    </p>
+    <p><b>Steps of Photosynthesis:</b></p>
+    <ul>
+        <li><b>Light Reaction:</b> Occurs in the thylakoid membranes. Sunlight splits water molecules, releasing oxygen and producing ATP and NADPH.</li>
+        <li><b>Dark Reaction (Calvin Cycle):</b> Occurs in the stroma. Carbon dioxide is fixed into glucose using ATP(Adenosine Tri-Phosphate) and NADPH(Nicotinamide Adenine Dinucleotide Phosphate (Hydrogen)).</li>
+    </ul>
+</section>
+
+<section class="respiration">
+    <h2>Respiration</h2>
+    <p>
+        Respiration in plants is the process by which they release energy from the food they produce. Unlike animals, plants do not have lungs or specialized organs 
+        for breathing. Instead, they exchange gases through stomata in leaves, lenticels in stems, and root surfaces. The glucose formed during photosynthesis is broken 
+        down with oxygen in a series of reactions, producing ATP (energy), carbon dioxide, and water. This energy is essential for growth, nutrient absorption, and  
+        other metabolic activities. Importantly, respiration occurs continuously, both day and night, ensuring that plants maintain their life processes and balance energy needs.
+    </p>
+</section>
+
+<section class="transpiration">
+    <h2>Transpiration</h2>
+    <p>
+        Transpiration is the process by which plants lose water vapor through small openings called stomata, mainly on their leaves. As water evaporates, it creates a 
+        pull that helps draw more water and dissolved minerals upward from the roots through the xylem. This continuous stream supports photosynthesis, nutrient 
+        transport, and temperature regulation. Transpiration also maintains turgor pressure, keeping plants upright. The rate of transpiration depends on environmental 
+        factors such as light, temperature, humidity, and wind. Though it may seem like a loss, transpiration is vital for plant survival and plays an important role in 
+        the global water cycle.
+    </p>
+</section>
+
+<section class="reproduction">
+    <h2>Reproduction</h2>
+    <h3>Sexual Reproduction</h3>
+    <p>
+        Sexual reproduction occurs through flowers. Male parts (stamens) produce pollen, while female parts (carpels) contain ovules. 
+        Pollination transfers pollen to the stigma, fertilization occurs, and seeds develop inside fruits. 
+        This ensures genetic diversity and adaptation.
+    </p>
+    <h3>Asexual Reproduction</h3>
+    <p>
+        Asexual reproduction occurs without seeds. New plants grow from roots, stems, or leaves. 
+        Examples include runners in grass, tubers in potatoes, and cuttings in many plants. 
+        This allows rapid multiplication and survival in harsh conditions.
+    </p>
+</section>
+
+<section class="transport">
+    <h2>Nutrient Transport</h2>
+    <p>
+        Nutrient transportation in plants is the movement of water, minerals, and food throughout their body. Roots absorb water and dissolved minerals from the soil, 
+        which are carried upward through the xylem vessels to stems and leaves. At the same time, leaves produce glucose during photosynthesis, which is converted into 
+        sucrose and transported through the phloem to other parts of the plant, including roots and growing tissues. This dual system ensures that every cell receives 
+        the materials it needs for growth, repair, and energy. Efficient nutrient transport maintains plant health and supports vital processes like photosynthesis and respiration.
+    </p>
+</section>
+
+<section class="adaptations">
+  <h2>Adaptations in Plants</h2>
+  <ul>
+    <li><b>Desert Plants:</b> Succulents like cacti store water in thick, fleshy stems. Their spines reduce water loss and provide protection, while deep or widespread roots maximize water absorption.</li>
+    <li><b>Aquatic Plants:</b> Species such as water lilies have air-filled tissues (aerenchyma) for buoyancy, thin cuticles for easy gas exchange, and stomata located on upper leaf surfaces to access air.</li>
+    <li><b>Climbing Plants:</b> Vines and creepers develop tendrils, hooks, or twining stems to cling to supports. This adaptation allows them to reach sunlight without investing energy in thick, woody stems.</li>
+    <li><b>Alpine Plants:</b> Cushion-like growth forms help resist cold winds and conserve heat. Hairy leaves reduce heat loss and protect against frost, while short stature prevents damage from snow.</li>
+    <li><b>Halophytes:</b> Found in coastal or saline soils, they excrete excess salt through special glands or store it in leaves, enabling survival in high-salinity environments.</li>
+    <li><b>Epiphytes:</b> Plants like orchids grow on other plants for support. They absorb moisture and nutrients directly from the air and rain through specialized aerial roots.</li>
+    <li><b>Tropical Rainforest Plants:</b> Large leaves capture limited sunlight under dense canopies, while drip tips help shed excess water to prevent fungal growth.</li>
+    <li><b>Carnivorous Plants:</b> In nutrient-poor soils, species like pitcher plants and Venus flytraps trap and digest insects to supplement their nitrogen intake.</li>
+  </ul>
+</section>
+
+<section class="role">
+  <h2>Role in Nature</h2>
+  <ul>
+    <li><b>Oxygen Production:</b> Through photosynthesis, plants release oxygen essential for the survival of animals and humans.</li>
+    <li><b>Foundation of Food Chains:</b> As primary producers, plants convert sunlight into energy, forming the base of all ecosystems.</li>
+    <li><b>Soil Protection:</b> Roots bind soil, preventing erosion, while leaf litter enriches fertility and supports microorganisms.</li>
+    <li><b>Climate Regulation:</b> Forests and vegetation absorb carbon dioxide, store carbon, and help reduce global warming by moderating temperatures.</li>
+    <li><b>Resource Providers:</b> Plants supply medicines, fibers, wood, oils, dyes, and countless raw materials for human use.</li>
+    <li><b>Water Cycle Contribution:</b> Through transpiration, plants release water vapor into the atmosphere, influencing rainfall and humidity.</li>
+    <li><b>Habitat Creation:</b> Trees and shrubs provide shelter and breeding grounds for birds, insects, and other wildlife.</li>
+    <li><b>Aesthetic & Cultural Value:</b> Plants enhance landscapes, inspire art, and hold spiritual significance in many cultures.</li>
+  </ul>
+</section>
+
+<section class="functions">
+  <h2>Functions of Plants</h2>
+  <ul>
+    <li><b>Photosynthesis:</b> Convert sunlight, water, and carbon dioxide into glucose and oxygen.</li>
+    <li><b>Respiration:</b> Break down glucose to release energy for growth and metabolism.</li>
+    <li><b>Transpiration:</b> Release water vapor through stomata, aiding nutrient transport and regulating temperature.</li>
+    <li><b>Nutrient Transport:</b> Move water, minerals (via xylem), and food (via phloem) throughout the plant.</li>
+    <li><b>Reproduction:</b> Produce flowers, fruits, and seeds to ensure species survival.</li>
+    <li><b>Growth & Development:</b> Cells divide and elongate, enabling plants to grow and adapt.</li>
+    <li><b>Support & Structure:</b> Stems and roots provide stability and anchorage.</li>
+    <li><b>Storage:</b> Roots, stems, and leaves store food, water, and nutrients.</li>
+    <li><b>Defense:</b> Develop adaptations like thorns, spines, toxins, or thick cuticles to resist herbivores and harsh conditions.</li>
+    <li><b>Symbiosis:</b> Form relationships with fungi (mycorrhizae) and bacteria (nitrogen fixation) to enhance nutrient uptake.</li>
+    <li><b>Ecological Balance:</b> Maintain biodiversity, regulate climate, and contribute to the water and carbon cycles.</li>
+  </ul>
+</section>
+
+
+<section class="section">
+    <h2>Importance of Photosynthesis</h2>
+    <p>
+        Photosynthesis is one of the most important processes on Earth. It produces food for plants and
+        releases oxygen into the atmosphere. The glucose formed during photosynthesis is used by plants
+        for energy, growth, and storage.
+    </p>
+    <p>
+        Animals and humans depend on photosynthesis indirectly because food chains begin with green plants.
+        It also helps maintain the balance of oxygen and carbon dioxide in nature.
+    </p>
+</section>
+
+<section class="conclusion">
+    <h2>Conclusion</h2>
+    <p>
+        Plants are active life-support systems for Earth. 
+        By producing food, oxygen, and shelter, they sustain biodiversity and human civilization. 
+        Protecting plants means protecting life itself, as they are the foundation of ecosystems and the guardians of our planet’s balance.
+    </p>
+</section>
+<center><a href="../Organs & Organ Systems/Organs.html"><button style="border-radius: 20px; font-size: 30px; padding: 30px 40px; background-color: #f1c40f; color: #ffffff;">Click to know what will happen to animal tissues if combined</button></a></center>
+</body>
+</html>
