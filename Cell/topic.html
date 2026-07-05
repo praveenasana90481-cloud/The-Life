@@ -351,7 +351,8 @@ li {
   <div id="content"></div>
   <button onclick="readAloud()">🔊 Read Aloud</button>
   <button onclick="stopReading()">⏹ Stop</button>
-  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <br>
+  <div id="image"></div>
   <button id="back" onclick="stopReading()"><a href="cell.html">⬅ Back to Home</a></button>
 
   <script>
@@ -441,8 +442,8 @@ if (topic && imageMap[topic]) {
     function readAloud() {
       const text = document.getElementById("content").innerText;
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-GB";
-      utterance.rate = 1.1
+      utterance.lang = "en-US";
+      utterance.rate = 1.0
       speechSynthesis.speak(utterance);
     }
 
