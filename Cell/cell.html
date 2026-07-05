@@ -350,6 +350,22 @@ li {
     }
 }
 
+
+/* Fixed organelle button grid */
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 25px 0;
+}
+
+.org-btn {
+    width: 100% !important;
+    min-height: 62px;
+    padding: 14px 16px !important;
+    font-size: clamp(0.95rem, 2.4vw, 1.08rem) !important;
+}
+
 </style>
 </head>
 <body>
@@ -358,6 +374,8 @@ li {
     <p style="background:cyan; padding:15px; font-size:18px; font-weight:bold;">The cell is the basic unit of life, consisting of various organelles enclosed within a membrane. It maintains homeostasis, processes nutrients, and carries out essential biological functions. Cells exist in unicellular and multicellular organisms, differing in complexity and specialization. Based on structure, cells are classified as prokaryotic (lacking a nucleus, like bacteria) or eukaryotic (possessing a nucleus and organelles, like plant and animal cells). They communicate, replicate through division, and adapt to environmental changes, ensuring survival and function in living organisms.</p>
 
     <h2 style="color:purple">ORGANELLES</h2>
+
+    <div id="buttons"></div>
 
     
 
@@ -420,6 +438,10 @@ const colors = {
 };
 
 const buttonsDiv = document.getElementById("buttons");
+
+if (!buttonsDiv) {
+    console.error("Buttons container not found. Add <div id='buttons'></div> in HTML.");
+} else {
 for (let part in cell_parts) {
     const b = document.createElement("button");
     b.innerText = part;
@@ -427,6 +449,7 @@ for (let part in cell_parts) {
     b.style.background = colors[part];
     b.onclick = () => showInfo(part);
     buttonsDiv.appendChild(b);
+}
 }
 
 function showInfo(topic) {
